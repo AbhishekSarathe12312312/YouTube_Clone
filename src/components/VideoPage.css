@@ -1,0 +1,184 @@
+.video-page-container {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+}
+
+.main-video-section {
+  flex: 7;
+}
+
+.video-player {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+  background-color: black;
+}
+
+.video-player iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+
+.video-info-box {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.video-info-box h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.video-controls-container {
+  margin-bottom: 16px;
+}
+
+.nav-button {
+  background-color: var(--hover-bg);
+  border: 1px solid var(--border-color);
+  padding: 8px 16px;
+  border-radius: 40px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.nav-button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.channel-details-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.channel-info-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.channel-pic {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.channel-subscribers {
+  font-size: 14px;
+  color: var(--secondary-text-color);
+}
+
+.subscribe-btn {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  padding: 10px 16px;
+  border: none;
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.action-buttons-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.likes-dislikes-container {
+  display: flex;
+  background-color: var(--hover-bg);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.icon-btn-like, .icon-btn-dislike, .share-btn, .more-btn {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.icon-btn-like i, .icon-btn-dislike i, .share-btn i, .more-btn i {
+  font-size: 20px;
+}
+
+.icon-btn-dislike {
+  border-left: 1px solid var(--border-color);
+}
+
+.share-btn {
+  background-color: var(--hover-bg);
+  border-radius: 20px;
+  padding: 8px 12px;
+}
+
+.related-videos-section {
+  flex: 1;
+  padding-right: 12px;
+}
+
+.related-videos-section h3 {
+  margin-bottom: 16px;
+}
+
+.related-video-card {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.related-video-card img {
+  width: 168px;
+  height: 94px;
+  border-radius: 8px;
+}
+
+.related-video-info h4 {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-color);
+  line-height: 1.2;
+}
+
+.related-video-info p {
+  font-size: 12px;
+  color: var(--secondary-text-color);
+}
+
+/* Mobile के लिए मीडिया क्वेरी */
+@media (max-width: 768px) {
+  .video-page-container {
+    flex-direction: column;
+    padding: 12px;
+  }
+
+  .main-video-section {
+    width: 100%;
+    order: 1;
+  }
+
+  .related-videos-section {
+    width: 100%;
+    padding-right: 0;
+    margin-top: 24px;
+    order: 2;
+  }
+
+  .related-video-card img {
+    width: 120px;
+    height: 67px;
+  }
+}

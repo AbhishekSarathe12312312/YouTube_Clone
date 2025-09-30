@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+  --bg-color: #f9f9f9;
+  --text-color: #030303;
+  --secondary-text-color: #606060;
+  --link-color: #065fd4;
+  --nav-bg: #fff;
+  --sidebar-bg: #fff;
+  --hover-bg: #e5e5e5;
+  --border-color: #dfdfdf;
+  --main-content-bg: #f9f9f9;
+  --search-bg: #e5e5e5;
+  --search-border: #ccc;
+  --filter-bg: #e5e5e5;
+  --filter-text: #030303;
+  --active-filter-bg: #030303;
+  --active-filter-text: #fff;
+}
+
+body[data-theme="dark"] {
+  --bg-color: #0f0f0f;
+  --text-color: #fff;
+  --secondary-text-color: #aaa;
+  --link-color: #3ea6ff;
+  --nav-bg: #212121;
+  --sidebar-bg: #212121;
+  --hover-bg: #383838;
+  --border-color: #383838;
+  --main-content-bg: #0f0f0f;
+  --search-bg: #121212;
+  --search-border: #333;
+  --filter-bg: #383838;
+  --filter-text: #fff;
+  --active-filter-bg: #fff;
+  --active-filter-text: #0f0f0f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}

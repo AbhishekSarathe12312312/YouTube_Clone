@@ -77,11 +77,10 @@ function App() {
   };
 
   useEffect(() => {
-<<<<<<< HEAD
+
     handleSearch("sirt");
-=======
     handleSearch("aaj tak news");
->>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
+// 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
   }, []);
 
   const handleVideoClick = (video, startFullscreen = false) => {

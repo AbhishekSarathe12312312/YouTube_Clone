@@ -1,0 +1,241 @@
+/* --- CSS Variables (मान लीजिए कि ये कहीं परिभाषित हैं, उदा. App.css में) --- */
+/*
+:root {
+  --nav-bg: #fff;
+  --text-color: #0f0f0f;
+  --hover-bg: #f2f2f2;
+  --search-bg: #f2f2f2;
+  --search-border: #ccc;
+  --link-color: #065fd4;
+  --border-color: #e0e0e0;
+}
+.dark-mode {
+  --nav-bg: #202020;
+  --text-color: #fff;
+  --hover-bg: #3c3c3c;
+  --search-bg: #121212;
+  --search-border: #3c3c3c;
+  --link-color: #3ea6ff;
+  --border-color: #3c3c3c;
+}
+*/
+/* ----------------------------------------------------------------- */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  height: 56px;
+  background-color: var(--nav-bg);
+  color: var(--text-color);
+  border-bottom: 1px solid var(--border-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-left .ri-menu-line {
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.nav-left .ri-menu-line:hover {
+  background-color: var(--hover-bg);
+}
+
+/* ✅ LOGO STYLES */
+.youtube-logo-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  height: 24px;
+  gap: 2px;
+  margin-top: -3px;
+}
+
+.youtube-icon {
+  color: #ff0000;
+  font-size: 30px;
+}
+
+.youtube-text {
+  color: var(--text-color);
+  font-size: 19px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 1;
+  margin-top: 0;
+}
+/* ------------------------------------------------------------- */
+
+.nav-middle {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  max-width: 600px;
+  position: relative;
+}
+
+.nav-middle input {
+  width: 100%;
+  padding: 8px 16px;
+  border: 1px solid var(--search-border);
+  border-radius: 40px 0 0 40px;
+  background-color: var(--search-bg);
+  color: var(--text-color);
+  padding-right: 50px;
+}
+
+.nav-middle input:focus {
+  outline: none;
+  border-color: var(--link-color);
+}
+
+/* Suggestions dropdown */
+.suggestions-dropdown {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 44px;
+  background: var(--nav-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  max-height: 300px;
+  overflow: auto;
+  z-index: 200;
+}
+.suggestion-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text-color);
+}
+.suggestion-item:hover,
+.suggestion-item.active {
+  background: var(--hover-bg);
+}
+
+.search-icon,
+.ri-mic-fill {
+  background-color: var(--hover-bg);
+  border: 1px solid var(--search-border);
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.search-icon {
+  border-radius: 0 40px 40px 0;
+  height: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-icon i {
+  font-size: 20px;
+}
+
+.ri-mic-fill {
+  border-radius: 50%;
+  padding: 8px;
+  margin-left: 8px;
+  font-size: 19px;
+  background-color: var(--hover-bg);
+  /* border: none; */
+  /* FIX: माइक आइकॉन को वर्टिकल अलाइनमेंट के लिए थोड़ा एडजस्ट करें */
+  display: flex;
+  align-items: center;
+  height: 33px;
+  width: 33px;
+  justify-content: center;
+}
+
+/* ✅ nav-right STYLES (Real YouTube alignment) */
+.nav-right {
+  display: flex;
+  align-items: center;
+  /* FIX: YouTube Navbar में आइकॉन्स के बीच गैप आमतौर पर 10-12px होता है */
+  gap: 12px;
+}
+
+.nav-right .ri-add-line {
+  /* Create button styles */
+  font-size: initial;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* FIX: Padding को कम और सटीक किया गया */
+  padding: 6px 25px;
+  border-radius: 22px;
+
+  background-color: var(--hover-bg);
+  border: none;
+  cursor: pointer;
+}
+
+.nav-right .ri-add-line span {
+  font-size: 18px;
+  font-weight: 500;
+  /* FIX: Create बटन टेक्स्ट के बगल में + का निशान भी होता है, इसलिए गैप को 
+     हटाकर केवल टेक्स्ट के लिए स्टाइलिंग दी गई है। */
+}
+
+/* Styling for Notification and Theme Icons */
+/* FIX: सभी आइकॉन्स को समान साइज और पैडिंग दी गई है */
+.notification-icon,
+.theme-toggle i {
+  font-size: 22px; /* आइकॉन साइज थोड़ा कम किया गया */
+  cursor: pointer;
+  padding: 8px; /* गोल आइकॉन के चारों ओर पैडिंग */
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.notification-icon:hover,
+.theme-toggle i:hover {
+  background-color: var(--hover-bg);
+}
+
+.profile-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  /* FIX: प्रोफाइल आइकॉन को पैडिंग की जरूरत नहीं है, सीधे रखा गया है */
+}
+
+/* मोबाइल के लिए मीडिया क्वेरी */
+@media (max-width: 768px) {
+  .nav-left .ri-menu-line {
+    display: none;
+  }
+  .nav-middle {
+    max-width: 100%;
+    margin: 0 16px;
+  }
+  .nav-right {
+    display: none;
+  }
+  .youtube-logo-container {
+    height: 18px;
+  }
+  .youtube-icon {
+    font-size: 29px;
+  }
+  .youtube-text {
+    font-size: 16px;
+  }
+}

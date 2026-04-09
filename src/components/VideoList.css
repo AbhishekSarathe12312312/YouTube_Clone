@@ -1,0 +1,82 @@
+.video-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 24px;
+  padding: 24px 0;
+}
+
+.video-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.video-card:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease;
+}
+
+/* नए थंबनेल कंटेनर के लिए */
+.thumbnail-container {
+  position: relative;
+}
+
+.video-thumbnail {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.video-info {
+  padding-top: 8px;
+}
+
+.video-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-color);
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.video-channel {
+  font-size: 14px;
+  color: var(--secondary-text-color);
+}
+
+/* नए फुल-स्क्रीन बटन के लिए स्टाइलिंग */
+.fullscreen-btn {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+  color: white;
+  z-index: 10;
+  display: none; /* डिफ़ॉल्ट रूप से छिपा हुआ */
+}
+
+.fullscreen-btn i {
+  font-size: 20px;
+}
+
+/* Tablets के लिए */
+@media (max-width: 1024px) {
+  .video-list {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+}
+
+/* Mobile के लिए */
+@media (max-width: 768px) {
+  .video-list {
+    grid-template-columns: 1fr; /* एक ही कॉलम */
+    gap: 12px;
+    padding: 12px 0;
+  }
+  .fullscreen-btn {
+    display: block; /* मोबाइल पर दिखाता है */
+  }
+}

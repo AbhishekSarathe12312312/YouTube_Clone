@@ -1,0 +1,42 @@
+.filter-bar-container {
+  padding: 12px 0;
+  position: sticky;
+  background-color: var(--main-content-bg);
+  z-index: 50;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.filter-bar {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 0 16px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.filter-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-btn {
+  white-space: nowrap;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: var(--filter-bg);
+  color: var(--filter-text);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.filter-btn:hover {
+  background-color: var(--hover-bg);
+}
+
+.filter-btn.active {
+  background-color: var(--active-filter-bg);
+  color: var(--active-filter-text);
+}

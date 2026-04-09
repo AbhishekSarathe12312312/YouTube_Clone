@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import "./Sidebar.css";
 import "remixicon/fonts/remixicon.css";
@@ -9,6 +10,19 @@ const Sidebar = ({ isSidebarOpen, onNavigate }) => {
         <div className="sidebar-item active">
           <i className="ri-home-5-line"></i>
           <span onClick={() => onNavigate && onNavigate("home")}>Home</span>
+=======
+import React from 'react';
+import './Sidebar.css';
+import 'remixicon/fonts/remixicon.css';
+
+const Sidebar = ({ isSidebarOpen }) => {
+  return (
+    <div className={`sidebar ${isSidebarOpen ? '' : 'closed'}`}>
+      <div className="sidebar-section">
+        <div className="sidebar-item active">
+          <i className="ri-home-5-line"></i>
+          <span>Home</span>
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
         </div>
         <div className="sidebar-item">
           <i className="ri-play-circle-line"></i>
@@ -24,10 +38,14 @@ const Sidebar = ({ isSidebarOpen, onNavigate }) => {
 
       <div className="sidebar-section">
         <h3>You</h3>
+<<<<<<< HEAD
         <div
           className="sidebar-item"
           onClick={() => onNavigate && onNavigate("history")}
         >
+=======
+        <div className="sidebar-item">
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
           <i className="ri-history-line"></i>
           <span>History</span>
         </div>
@@ -78,4 +96,8 @@ const Sidebar = ({ isSidebarOpen, onNavigate }) => {
   );
 };
 
+<<<<<<< HEAD
 export default Sidebar;
+=======
+export default Sidebar;
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53

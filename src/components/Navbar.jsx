@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useRef, useEffect } from "react";
 import "./Navbar.css";
 import "remixicon/fonts/remixicon.css";
@@ -25,15 +26,30 @@ const Navbar = ({ onSearch, toggleTheme, toggleSidebar, theme }) => {
     } catch (err) {
       console.error("Failed to save search history", err);
     }
+=======
+import React, { useState } from 'react';
+import './Navbar.css';
+import 'remixicon/fonts/remixicon.css';
+
+const Navbar = ({ onSearch, toggleTheme, toggleSidebar, theme }) => {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearch = (term = searchTerm) => {
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
     onSearch(term);
   };
 
   const handleKeyPress = (e) => {
+<<<<<<< HEAD
     if (e.key === "Enter") {
+=======
+    if (e.key === 'Enter') {
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
       handleSearch();
     }
   };
 
+<<<<<<< HEAD
   const fetchSuggestions = async (term) => {
     if (!term || term.trim() === "") {
       setSuggestions([]);
@@ -151,13 +167,25 @@ const Navbar = ({ onSearch, toggleTheme, toggleSidebar, theme }) => {
       alert(
         "माफ़ कीजिये, आपका ब्राउज़र वॉयस रिकग्निशन को सपोर्ट नहीं करता है।",
       );
+=======
+  // --- 🎤 वॉयस सर्च फंक्शनality (Voice Search Functionality) ---
+  const handleVoiceSearch = () => {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    if (!SpeechRecognition) {
+      alert("माफ़ कीजिये, आपका ब्राउज़र वॉयस रिकग्निशन को सपोर्ट नहीं करता है।");
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
       return;
     }
 
     const recognition = new SpeechRecognition();
     recognition.continuous = false;
     recognition.interimResults = false;
+<<<<<<< HEAD
     recognition.lang = "en-US";
+=======
+    recognition.lang = 'en-US'; 
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
 
     recognition.onstart = () => {
       console.log("Listening for voice input...");
@@ -166,9 +194,15 @@ const Navbar = ({ onSearch, toggleTheme, toggleSidebar, theme }) => {
     recognition.onresult = (event) => {
       const transcript = event.results[0][0].transcript;
       console.log("Voice Input:", transcript);
+<<<<<<< HEAD
 
       setSearchTerm(transcript);
       handleSearch(transcript);
+=======
+      
+      setSearchTerm(transcript); 
+      handleSearch(transcript); 
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
     };
 
     recognition.onerror = (event) => {
@@ -181,22 +215,35 @@ const Navbar = ({ onSearch, toggleTheme, toggleSidebar, theme }) => {
       console.error("Could not start recognition:", error);
     }
   };
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
   // -------------------------------------------------------------------
 
   return (
     <nav className="navbar">
       <div className="nav-left">
         <i className="ri-menu-line" onClick={toggleSidebar}></i>
+<<<<<<< HEAD
 
         {/* ✅ YouTube Logo (Icon + Text) */}
         <div className="youtube-logo-container">
           <i className="ri-youtube-fill youtube-icon"></i>
           <span className="youtube-text">YouTube</span>
+=======
+        
+        {/* ✅ YouTube Logo (Icon + Text) */}
+        <div className="youtube-logo-container"> 
+            <i className="ri-youtube-fill youtube-icon"></i> 
+            <span className="youtube-text">YouTube</span>
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
         </div>
         {/* ------------------------------------------- */}
       </div>
       <div className="nav-middle">
+<<<<<<< HEAD
         <div ref={containerRef} style={{ width: "100%", position: "relative" }}>
           <input
             type="text"
@@ -233,12 +280,25 @@ const Navbar = ({ onSearch, toggleTheme, toggleSidebar, theme }) => {
             </div>
           )}
         </div>
+=======
+        <input
+          type="text"
+          placeholder="Search"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          onKeyPress={handleKeyPress}
+        />
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
         {/* Search button with click handler */}
         <div className="search-icon" onClick={handleSearch}>
           <i className="ri-search-line"></i>
         </div>
         {/* Voice search button */}
+<<<<<<< HEAD
         <i className="ri-mic-fill" onClick={handleVoiceSearch}></i>
+=======
+        <i className="ri-mic-fill" onClick={handleVoiceSearch}></i> 
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
       </div>
       <div className="nav-right">
         {/* ✅ Create button */}
@@ -248,6 +308,7 @@ const Navbar = ({ onSearch, toggleTheme, toggleSidebar, theme }) => {
         <i className="ri-notification-3-line notification-icon"></i>
         {/* Theme Toggle (Light/Dark) */}
         <div className="theme-toggle" onClick={toggleTheme}>
+<<<<<<< HEAD
           <i className={theme === "light" ? "ri-moon-line" : "ri-sun-line"}></i>
         </div>
         <img
@@ -255,9 +316,18 @@ const Navbar = ({ onSearch, toggleTheme, toggleSidebar, theme }) => {
           alt="Profile"
           className="profile-icon"
         />
+=======
+          <i className={theme === 'light' ? 'ri-moon-line' : 'ri-sun-line'}></i> 
+        </div>
+        <img src="https://i.pravatar.cc/32?u=profile" alt="Profile" className="profile-icon" />
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
       </div>
     </nav>
   );
 };
 
+<<<<<<< HEAD
 export default Navbar;
+=======
+export default Navbar;
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53

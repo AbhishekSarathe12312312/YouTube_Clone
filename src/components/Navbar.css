@@ -57,6 +57,7 @@
 
 /* ✅ LOGO STYLES */
 .youtube-logo-container {
+<<<<<<< HEAD
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -80,6 +81,33 @@
 }
 /* ------------------------------------------------------------- */
 
+=======
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height: 24px;
+    gap: 2px;
+    margin-top: -3px; 
+}
+
+.youtube-icon {
+    color: #ff0000;
+    font-size: 30px;
+}
+
+.youtube-text {
+    color: var(--text-color); 
+    font-size: 19px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 1; 
+    margin-top: 0;
+
+}
+/* ------------------------------------------------------------- */
+
+
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
 .nav-middle {
   display: flex;
   align-items: center;
@@ -103,6 +131,7 @@
   border-color: var(--link-color);
 }
 
+<<<<<<< HEAD
 /* Suggestions dropdown */
 .suggestions-dropdown {
   position: absolute;
@@ -130,6 +159,9 @@
 
 .search-icon,
 .ri-mic-fill {
+=======
+.search-icon, .ri-mic-fill {
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
   background-color: var(--hover-bg);
   border: 1px solid var(--search-border);
   padding: 8px 16px;
@@ -139,26 +171,45 @@
 .search-icon {
   border-radius: 0 40px 40px 0;
   height: 33px;
+<<<<<<< HEAD
   display: flex;
+=======
+  display: flex; 
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
   align-items: center;
   justify-content: center;
 }
 
 .search-icon i {
+<<<<<<< HEAD
   font-size: 20px;
 }
 
+=======
+  font-size: 20px; 
+}
+
+
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
 .ri-mic-fill {
   border-radius: 50%;
   padding: 8px;
   margin-left: 8px;
+<<<<<<< HEAD
   font-size: 19px;
+=======
+  font-size: 19px; 
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
   background-color: var(--hover-bg);
   /* border: none; */
   /* FIX: माइक आइकॉन को वर्टिकल अलाइनमेंट के लिए थोड़ा एडजस्ट करें */
   display: flex;
   align-items: center;
+<<<<<<< HEAD
   height: 33px;
+=======
+  height: 33px; 
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
   width: 33px;
   justify-content: center;
 }
@@ -168,7 +219,11 @@
   display: flex;
   align-items: center;
   /* FIX: YouTube Navbar में आइकॉन्स के बीच गैप आमतौर पर 10-12px होता है */
+<<<<<<< HEAD
   gap: 12px;
+=======
+  gap: 12px; 
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
 }
 
 .nav-right .ri-add-line {
@@ -177,6 +232,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+<<<<<<< HEAD
 
   /* FIX: Padding को कम और सटीक किया गया */
   padding: 6px 25px;
@@ -185,6 +241,17 @@
   background-color: var(--hover-bg);
   border: none;
   cursor: pointer;
+=======
+  
+  /* FIX: Padding को कम और सटीक किया गया */
+  padding: 6px 25px; 
+  border-radius: 22px;
+  
+  background-color: var(--hover-bg);
+  border: none; 
+  cursor: pointer;
+
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
 }
 
 .nav-right .ri-add-line span {
@@ -196,8 +263,12 @@
 
 /* Styling for Notification and Theme Icons */
 /* FIX: सभी आइकॉन्स को समान साइज और पैडिंग दी गई है */
+<<<<<<< HEAD
 .notification-icon,
 .theme-toggle i {
+=======
+.notification-icon, .theme-toggle i {
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
   font-size: 22px; /* आइकॉन साइज थोड़ा कम किया गया */
   cursor: pointer;
   padding: 8px; /* गोल आइकॉन के चारों ओर पैडिंग */
@@ -205,11 +276,19 @@
   transition: background-color 0.2s;
 }
 
+<<<<<<< HEAD
 .notification-icon:hover,
 .theme-toggle i:hover {
   background-color: var(--hover-bg);
 }
 
+=======
+.notification-icon:hover, .theme-toggle i:hover {
+    background-color: var(--hover-bg);
+}
+
+
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
 .profile-icon {
   width: 32px;
   height: 32px;
@@ -230,6 +309,7 @@
     display: none;
   }
   .youtube-logo-container {
+<<<<<<< HEAD
     height: 18px;
   }
   .youtube-icon {
@@ -239,3 +319,14 @@
     font-size: 16px;
   }
 }
+=======
+    height: 18px; 
+  }
+  .youtube-icon {
+      font-size: 29px;
+  }
+  .youtube-text {
+      font-size: 16px;
+  }
+}
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53

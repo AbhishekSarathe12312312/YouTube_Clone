@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import Comments from "./Comments";
@@ -11,6 +12,15 @@ const VideoPage = ({
   initialFullscreen,
   setInitialFullscreen,
 }) => {
+=======
+import React, { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
+import Comments from './Comments';
+import './VideoPage.css';
+import 'remixicon/fonts/remixicon.css';
+
+const VideoPage = ({ video, onVideoClick, videos, initialFullscreen, setInitialFullscreen }) => {
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
   const [relatedVideos, setRelatedVideos] = useState([]);
   const [channelDetails, setChannelDetails] = useState(null);
   const videoPlayerRef = useRef(null);
@@ -23,13 +33,18 @@ const VideoPage = ({
         try {
           // Fetch related videos
           const relatedRes = await axios.get(
+<<<<<<< HEAD
             `https://www.googleapis.com/youtube/v3/search`,
             {
+=======
+            `https://www.googleapis.com/youtube/v3/search`, {
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
               params: {
                 part: "snippet",
                 maxResults: 10,
                 relatedToVideoId: video.id,
                 type: "video",
+<<<<<<< HEAD
                 key: API_KEY,
               },
             },
@@ -39,11 +54,23 @@ const VideoPage = ({
             title: item.snippet.title,
             channel: item.snippet.channelTitle,
             thumbnail: item.snippet.thumbnails.high.url,
+=======
+                key: API_KEY
+              }
+            }
+          );
+          const relatedData = relatedRes.data.items.map(item => ({
+            id: item.id.videoId,
+            title: item.snippet.title,
+            channel: item.snippet.channelTitle,
+            thumbnail: item.snippet.thumbnails.high.url
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
           }));
           setRelatedVideos(relatedData);
 
           // Fetch channel details
           const channelRes = await axios.get(
+<<<<<<< HEAD
             `https://www.googleapis.com/youtube/v3/channels`,
             {
               params: {
@@ -52,11 +79,24 @@ const VideoPage = ({
                 key: API_KEY,
               },
             },
+=======
+            `https://www.googleapis.com/youtube/v3/channels`, {
+              params: {
+                part: "snippet,statistics",
+                id: video.channelId,
+                key: API_KEY
+              }
+            }
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
           );
           const channelData = channelRes.data.items[0];
           setChannelDetails({
             logo: channelData.snippet.thumbnails.default.url,
+<<<<<<< HEAD
             subscribers: channelData.statistics.subscriberCount,
+=======
+            subscribers: channelData.statistics.subscriberCount
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
           });
         } catch (err) {
           console.error("Error fetching video details:", err);
@@ -67,6 +107,7 @@ const VideoPage = ({
     fetchVideoDetails();
   }, [video, API_KEY]);
 
+<<<<<<< HEAD
   // Save watch history to localStorage whenever a new video is shown
   useEffect(() => {
     if (!video || !video.id) return;
@@ -95,10 +136,13 @@ const VideoPage = ({
     }
   }, [video]);
 
+=======
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
   useEffect(() => {
     if (initialFullscreen && videoPlayerRef.current) {
       if (videoPlayerRef.current.requestFullscreen) {
         videoPlayerRef.current.requestFullscreen();
+<<<<<<< HEAD
       } else if (videoPlayerRef.current.mozRequestFullScreen) {
         /* Firefox */
         videoPlayerRef.current.mozRequestFullScreen();
@@ -111,6 +155,17 @@ const VideoPage = ({
       }
       if (screen.orientation.lock) {
         screen.orientation.lock("landscape");
+=======
+      } else if (videoPlayerRef.current.mozRequestFullScreen) { /* Firefox */
+        videoPlayerRef.current.mozRequestFullScreen();
+      } else if (videoPlayerRef.current.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+        videoPlayerRef.current.webkitRequestFullscreen();
+      } else if (videoPlayerRef.current.msRequestFullscreen) { /* IE/Edge */
+        videoPlayerRef.current.msRequestFullscreen();
+      }
+      if (screen.orientation.lock) {
+        screen.orientation.lock('landscape');
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
       }
       setInitialFullscreen(false);
     }
@@ -121,20 +176,32 @@ const VideoPage = ({
   }
 
   const handleNextVideo = () => {
+<<<<<<< HEAD
     const currentIndex = videos.findIndex((v) => v.id === video.id);
+=======
+    const currentIndex = videos.findIndex(v => v.id === video.id);
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
     if (currentIndex > -1 && currentIndex < videos.length - 1) {
       onVideoClick(videos[currentIndex + 1]);
     }
   };
 
   const handlePreviousVideo = () => {
+<<<<<<< HEAD
     const currentIndex = videos.findIndex((v) => v.id === video.id);
+=======
+    const currentIndex = videos.findIndex(v => v.id === video.id);
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
     if (currentIndex > 0) {
       onVideoClick(videos[currentIndex - 1]);
     }
   };
 
+<<<<<<< HEAD
   const currentIndex = videos.findIndex((v) => v.id === video.id);
+=======
+  const currentIndex = videos.findIndex(v => v.id === video.id);
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
   const isPreviousDisabled = currentIndex <= 0;
   const isNextDisabled = currentIndex >= videos.length - 1;
 
@@ -154,14 +221,22 @@ const VideoPage = ({
           <h2>{video.title}</h2>
           <div className="video-controls-container">
             <button
+<<<<<<< HEAD
               className={`nav-button ${isPreviousDisabled ? "disabled" : ""}`}
+=======
+              className={`nav-button ${isPreviousDisabled ? 'disabled' : ''}`}
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
               onClick={handlePreviousVideo}
               disabled={isPreviousDisabled}
             >
               Previous
             </button>
             <button
+<<<<<<< HEAD
               className={`nav-button ${isNextDisabled ? "disabled" : ""}`}
+=======
+              className={`nav-button ${isNextDisabled ? 'disabled' : ''}`}
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
               onClick={handleNextVideo}
               disabled={isNextDisabled}
             >
@@ -170,6 +245,7 @@ const VideoPage = ({
           </div>
           <div className="channel-details-section">
             <div className="channel-info-container">
+<<<<<<< HEAD
               {channelDetails && (
                 <img
                   src={channelDetails.logo}
@@ -184,6 +260,12 @@ const VideoPage = ({
                     {channelDetails.subscribers} subscribers
                   </p>
                 )}
+=======
+              {channelDetails && <img src={channelDetails.logo} alt="Channel Logo" className="channel-pic" />}
+              <div>
+                <span className="channel-name">{video.channel}</span>
+                {channelDetails && <p className="channel-subscribers">{channelDetails.subscribers} subscribers</p>}
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
               </div>
               <button className="subscribe-btn">Subscribe</button>
             </div>
@@ -233,4 +315,8 @@ const VideoPage = ({
   );
 };
 
+<<<<<<< HEAD
 export default VideoPage;
+=======
+export default VideoPage;
+>>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53

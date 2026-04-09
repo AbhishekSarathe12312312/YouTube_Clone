@@ -6,7 +6,7 @@ import VideoPage from "./components/VideoPage";
 import LoadingSpinner from "./components/LoadingSpinner";
 import FilterBar from "./components/FilterBar";
 import axios from "axios";
-import './App.css';
+import "./App.css";
 
 function App() {
   const [videos, setVideos] = useState([]);
@@ -15,72 +15,79 @@ function App() {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState("light");
   const [startInFullscreen, setStartInFullscreen] = useState(false);
 
-  const API_KEY = "AIzaSyD0dlQFppzxvKjmL5sbLnNWlWXA_borpQQ";
+  const API_KEY = "AIzaSyD0dlQFppzxvKjmL5sbLnNWlWXA_borpQQ"; // ⚠️ apni key daal
 
+  // Theme
   useEffect(() => {
-    document.body.setAttribute('data-theme', theme);
+    document.body.setAttribute("data-theme", theme);
   }, [theme]);
 
+  // Responsive
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     handleResize();
 
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const toggleSidebar = () => {
-    setIsSidebarOpen(prevState => !prevState);
+    setIsSidebarOpen((prev) => !prev);
   };
 
   const toggleTheme = () => {
-    setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
 
+  // 🔥 FIXED SEARCH FUNCTION
   const handleSearch = async (query) => {
+    if (!query) return;
+
     setLoading(true);
     setError(null);
     setVideos([]);
     setSelectedVideo(null);
+
     try {
       const res = await axios.get(
-        `https://www.googleapis.com/youtube/v3/search`, {
+        "https://www.googleapis.com/youtube/v3/search",
+        {
           params: {
             q: query,
             part: "snippet",
-            maxResults: 2000,
+            maxResults: 50, // ✅ FIXED
             key: API_KEY,
-            type: "video"
-          }
-        }
+            type: "video",
+          },
+        },
       );
 
-      const videoData = res.data.items.map(item => ({
+      const videoData = res.data.items.map((item) => ({
         id: item.id.videoId,
         title: item.snippet.title,
         channel: item.snippet.channelTitle,
         thumbnail: item.snippet.thumbnails.high.url,
-        channelId: item.snippet.channelId
+        channelId: item.snippet.channelId,
       }));
+
       setVideos(videoData);
     } catch (err) {
-      console.error("Error fetching videos:", err);
-      setError("Failed to fetch videos. Please try again later.");
+      console.error("FULL ERROR:", err);
+      console.error("RESPONSE:", err.response);
+      setError("❌ Failed to fetch videos (check API key / quota)");
     } finally {
       setLoading(false);
     }
   };
 
+  // Default load
   useEffect(() => {
-
-    handleSearch("sirt");
-    handleSearch("aaj tak news");
-// 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
+    handleSearch("cricket news"); // ✅ ek hi call
   }, []);
 
   const handleVideoClick = (video, startFullscreen = false) => {
@@ -90,15 +97,28 @@ function App() {
 
   return (
     <div className={`app-container ${theme}`}>
-      <Navbar onSearch={handleSearch} toggleTheme={toggleTheme} toggleSidebar={toggleSidebar} />
-      <div className={`main-content ${isSidebarOpen ? '' : 'sidebar-closed'}`}>
-        {!isMobile && <Sidebar isSidebarOpen={isSidebarOpen} />}
+      <Navbar
+        onSearch={handleSearch}
+        toggleTheme={toggleTheme}
+        toggleSidebar={toggleSidebar}
+        theme={theme}
+      />
+
+      <div className={`main-content ${isSidebarOpen ? "" : "sidebar-closed"}`}>
+        {!isMobile && (
+          <Sidebar
+            isSidebarOpen={isSidebarOpen}
+            onVideoClick={handleVideoClick}
+          />
+        )}
+
         <div className="video-section">
           {!selectedVideo && <FilterBar onFilterClick={handleSearch} />}
+
           {selectedVideo ? (
-            <VideoPage 
-              video={selectedVideo} 
-              onVideoClick={handleVideoClick} 
+            <VideoPage
+              video={selectedVideo}
+              onVideoClick={handleVideoClick}
               videos={videos}
               initialFullscreen={startInFullscreen}
               setInitialFullscreen={setStartInFullscreen}
@@ -107,7 +127,14 @@ function App() {
             <>
               {loading && <LoadingSpinner />}
               {error && <p className="error-message">{error}</p>}
-              {!loading && !error && <VideoList videos={videos} onVideoClick={handleVideoClick} isMobile={isMobile} />}
+
+              {!loading && !error && (
+                <VideoList
+                  videos={videos}
+                  onVideoClick={handleVideoClick}
+                  isMobile={isMobile}
+                />
+              )}
             </>
           )}
         </div>

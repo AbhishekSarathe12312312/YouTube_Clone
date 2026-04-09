@@ -1,26 +1,3 @@
-/* --- CSS Variables (मान लीजिए कि ये कहीं परिभाषित हैं, उदा. App.css में) --- */
-/*
-:root {
-  --nav-bg: #fff;
-  --text-color: #0f0f0f;
-  --hover-bg: #f2f2f2;
-  --search-bg: #f2f2f2;
-  --search-border: #ccc;
-  --link-color: #065fd4;
-  --border-color: #e0e0e0;
-}
-.dark-mode {
-  --nav-bg: #202020;
-  --text-color: #fff;
-  --hover-bg: #3c3c3c;
-  --search-bg: #121212;
-  --search-border: #3c3c3c;
-  --link-color: #3ea6ff;
-  --border-color: #3c3c3c;
-}
-*/
-/* ----------------------------------------------------------------- */
-
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -48,16 +25,14 @@
   cursor: pointer;
   padding: 8px;
   border-radius: 50%;
-  transition: background-color 0.2s;
 }
 
 .nav-left .ri-menu-line:hover {
   background-color: var(--hover-bg);
 }
 
-/* ✅ LOGO STYLES */
+/* ✅ LOGO */
 .youtube-logo-container {
-<<<<<<< HEAD
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -76,38 +51,9 @@
   font-size: 19px;
   font-weight: bold;
   letter-spacing: -1px;
-  line-height: 1;
-  margin-top: 0;
-}
-/* ------------------------------------------------------------- */
-
-=======
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    height: 24px;
-    gap: 2px;
-    margin-top: -3px; 
 }
 
-.youtube-icon {
-    color: #ff0000;
-    font-size: 30px;
-}
-
-.youtube-text {
-    color: var(--text-color); 
-    font-size: 19px;
-    font-weight: bold;
-    letter-spacing: -1px;
-    line-height: 1; 
-    margin-top: 0;
-
-}
-/* ------------------------------------------------------------- */
-
-
->>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
+/* 🔍 Middle */
 .nav-middle {
   display: flex;
   align-items: center;
@@ -123,7 +69,6 @@
   border-radius: 40px 0 0 40px;
   background-color: var(--search-bg);
   color: var(--text-color);
-  padding-right: 50px;
 }
 
 .nav-middle input:focus {
@@ -131,37 +76,32 @@
   border-color: var(--link-color);
 }
 
-<<<<<<< HEAD
-/* Suggestions dropdown */
+/* Suggestions */
 .suggestions-dropdown {
   position: absolute;
+  top: 44px;
   left: 0;
   right: 0;
-  top: 44px;
   background: var(--nav-bg);
   border: 1px solid var(--border-color);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   border-radius: 6px;
   max-height: 300px;
-  overflow: auto;
+  overflow-y: auto;
   z-index: 200;
 }
+
 .suggestion-item {
   padding: 8px 12px;
   cursor: pointer;
-  font-size: 14px;
-  color: var(--text-color);
 }
-.suggestion-item:hover,
-.suggestion-item.active {
+
+.suggestion-item:hover {
   background: var(--hover-bg);
 }
 
+/* Search + mic */
 .search-icon,
 .ri-mic-fill {
-=======
-.search-icon, .ri-mic-fill {
->>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
   background-color: var(--hover-bg);
   border: 1px solid var(--search-border);
   padding: 8px 16px;
@@ -170,163 +110,83 @@
 
 .search-icon {
   border-radius: 0 40px 40px 0;
-  height: 33px;
-<<<<<<< HEAD
   display: flex;
-=======
-  display: flex; 
->>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
   align-items: center;
-  justify-content: center;
 }
 
 .search-icon i {
-<<<<<<< HEAD
   font-size: 20px;
 }
 
-=======
-  font-size: 20px; 
-}
-
-
->>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
 .ri-mic-fill {
   border-radius: 50%;
   padding: 8px;
   margin-left: 8px;
-<<<<<<< HEAD
   font-size: 19px;
-=======
-  font-size: 19px; 
->>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
-  background-color: var(--hover-bg);
-  /* border: none; */
-  /* FIX: माइक आइकॉन को वर्टिकल अलाइनमेंट के लिए थोड़ा एडजस्ट करें */
   display: flex;
   align-items: center;
-<<<<<<< HEAD
-  height: 33px;
-=======
-  height: 33px; 
->>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
-  width: 33px;
   justify-content: center;
 }
 
-/* ✅ nav-right STYLES (Real YouTube alignment) */
+/* Right side */
 .nav-right {
   display: flex;
   align-items: center;
-  /* FIX: YouTube Navbar में आइकॉन्स के बीच गैप आमतौर पर 10-12px होता है */
-<<<<<<< HEAD
   gap: 12px;
-=======
-  gap: 12px; 
->>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
 }
 
 .nav-right .ri-add-line {
-  /* Create button styles */
-  font-size: initial;
   display: flex;
   align-items: center;
-  justify-content: center;
-<<<<<<< HEAD
-
-  /* FIX: Padding को कम और सटीक किया गया */
   padding: 6px 25px;
   border-radius: 22px;
-
   background-color: var(--hover-bg);
-  border: none;
   cursor: pointer;
-=======
-  
-  /* FIX: Padding को कम और सटीक किया गया */
-  padding: 6px 25px; 
-  border-radius: 22px;
-  
-  background-color: var(--hover-bg);
-  border: none; 
-  cursor: pointer;
-
->>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
 }
 
-.nav-right .ri-add-line span {
-  font-size: 18px;
-  font-weight: 500;
-  /* FIX: Create बटन टेक्स्ट के बगल में + का निशान भी होता है, इसलिए गैप को 
-     हटाकर केवल टेक्स्ट के लिए स्टाइलिंग दी गई है। */
-}
-
-/* Styling for Notification and Theme Icons */
-/* FIX: सभी आइकॉन्स को समान साइज और पैडिंग दी गई है */
-<<<<<<< HEAD
 .notification-icon,
 .theme-toggle i {
-=======
-.notification-icon, .theme-toggle i {
->>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
-  font-size: 22px; /* आइकॉन साइज थोड़ा कम किया गया */
+  font-size: 22px;
   cursor: pointer;
-  padding: 8px; /* गोल आइकॉन के चारों ओर पैडिंग */
+  padding: 8px;
   border-radius: 50%;
-  transition: background-color 0.2s;
 }
 
-<<<<<<< HEAD
 .notification-icon:hover,
 .theme-toggle i:hover {
   background-color: var(--hover-bg);
 }
 
-=======
-.notification-icon:hover, .theme-toggle i:hover {
-    background-color: var(--hover-bg);
-}
-
-
->>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
 .profile-icon {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  /* FIX: प्रोफाइल आइकॉन को पैडिंग की जरूरत नहीं है, सीधे रखा गया है */
 }
 
-/* मोबाइल के लिए मीडिया क्वेरी */
+/* 📱 Mobile */
 @media (max-width: 768px) {
   .nav-left .ri-menu-line {
     display: none;
   }
+
   .nav-middle {
     max-width: 100%;
     margin: 0 16px;
   }
+
   .nav-right {
     display: none;
   }
+
   .youtube-logo-container {
-<<<<<<< HEAD
     height: 18px;
   }
+
   .youtube-icon {
     font-size: 29px;
   }
+
   .youtube-text {
     font-size: 16px;
   }
 }
-=======
-    height: 18px; 
-  }
-  .youtube-icon {
-      font-size: 29px;
-  }
-  .youtube-text {
-      font-size: 16px;
-  }
-}
->>>>>>> 813a288f9424fdbf7bcc2f46c6aa1de8caeeda53
